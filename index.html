@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6d28d9">
+  <meta name="description" content="Meet MakeKraft: discover kids' crafts and toys, thoughtful gifts, home décor, modern and traditional outfits, and wedding return gifts and décor.">
+  <title>Our Story | MakeKraft</title>
+  <link rel="icon" type="image/png" href="MakeCraftLogo_transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #24143d;
+      --muted: #71677d;
+      --purple: #6d28d9;
+      --purple-dark: #4c1d95;
+      --lavender: #f5f0ff;
+      --paper: #fffdfb;
+      --line: #eee8f5;
+      --teal: #2dd4bf;
+      --rose: #fb7185;
+      --radius: 24px;
+      --shadow: 0 24px 70px rgba(48, 24, 83, .11);
+      font-family: "DM Sans", sans-serif;
+      scroll-behavior: smooth;
+      scroll-padding-top: 116px;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+
+    .site-header { position: sticky; inset: 0 0 auto; z-index: 20; box-shadow: 0 8px 25px rgba(43, 16, 77, .12); }
+    .header-main { background: linear-gradient(110deg, #f43f5e 0%, #c026d3 33%, #6d28d9 62%, #0891b2 100%); }
+    .header-row { min-height: 82px; display: flex; align-items: center; gap: 30px; }
+    .brand { display: inline-flex; flex: 0 0 auto; align-items: center; width: 188px; }
+    .brand img { width: 100%; height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.24)); }
+    .search { flex: 1; position: relative; max-width: 560px; margin-inline: auto; }
+    .search input { width: 100%; height: 46px; border: 0; border-radius: 12px; padding: 0 58px 0 17px; outline: 0; color: var(--ink); background: white; box-shadow: 0 5px 16px rgba(34, 12, 64, .16); }
+    .search input::placeholder { color: #9c93a8; }
+    .search button { position: absolute; inset: 4px 4px 4px auto; width: 40px; border: 0; border-radius: 9px; display: grid; place-items: center; color: #102a36; background: var(--teal); cursor: pointer; transition: background .2s, transform .2s; }
+    .search button:hover { background: #5eead4; transform: scale(.97); }
+    .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 23px; color: white; white-space: nowrap; }
+    .account { display: grid; gap: 1px; }
+    .account small { color: #f5d0fe; font-size: 10px; }
+    .account strong { font-size: 13px; }
+    .cart { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.32); border-radius: 11px; padding: 10px 12px; background: rgba(255,255,255,.12); font-weight: 700; font-size: 13px; transition: background .2s; }
+    .cart:hover { background: rgba(255,255,255,.24); }
+    .cart svg { width: 19px; height: 19px; }
+    .category-nav { background: rgba(255,255,255,.97); border-bottom: 1px solid #eee8f5; }
+    .category-row { min-height: 46px; display: flex; align-items: center; gap: 28px; overflow-x: auto; scrollbar-width: none; white-space: nowrap; color: #51465f; font-size: 12px; font-weight: 700; }
+    .category-row::-webkit-scrollbar { display: none; }
+    .category-row a { min-height: 46px; display: inline-flex; align-items: center; position: relative; transition: color .2s; }
+    .category-row a:hover, .category-row a.active { color: var(--purple); }
+    .category-row a.active::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; content: ""; background: var(--purple); }
+    .category-row .nav-cta { color: #be185d; }
+
+    .hero { position: relative; overflow: hidden; padding: 78px 0 84px; background: radial-gradient(ellipse at 82% 17%, rgba(216,180,254,.48), transparent 31%), radial-gradient(ellipse at 9% 92%, rgba(253,230,138,.34), transparent 31%), #fbf8ff; }
+    .hero::after { position: absolute; right: -95px; bottom: -180px; width: 440px; height: 440px; border: 1px solid rgba(109,40,217,.12); border-radius: 50%; content: ""; pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 70px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--purple); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { width: 22px; height: 2px; content: ""; background: var(--rose); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: Manrope, sans-serif; }
+    h1 { max-width: 600px; margin: 19px 0 20px; font-size: clamp(42px, 5.5vw, 68px); font-weight: 800; line-height: 1.05; letter-spacing: -.055em; }
+    h1 span { color: var(--purple); }
+    .hero-copy { max-width: 525px; margin-bottom: 29px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .button-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; border: 1px solid transparent; border-radius: 12px; font-size: 13px; font-weight: 800; transition: transform .2s, box-shadow .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: white; background: var(--purple); box-shadow: 0 10px 22px rgba(109,40,217,.22); }
+    .button-primary:hover { background: var(--purple-dark); box-shadow: 0 13px 25px rgba(109,40,217,.28); }
+    .button-secondary { border-color: #e6dcef; color: var(--ink); background: white; }
+    .button-secondary:hover { background: var(--lavender); }
+    .button svg { width: 16px; height: 16px; }
+    .hero-art { position: relative; min-height: 430px; }
+    .hero-photo { position: absolute; top: 5px; right: 25px; width: min(90%, 450px); height: 410px; overflow: hidden; border: 8px solid white; border-radius: 48% 48% 27px 27px; box-shadow: var(--shadow); transform: rotate(2deg); }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-note { position: absolute; right: 0; bottom: 17px; display: flex; align-items: center; gap: 11px; max-width: 235px; padding: 13px 17px; border: 1px solid rgba(255,255,255,.8); border-radius: 16px; background: rgba(255,255,255,.93); box-shadow: 0 12px 32px rgba(37,19,62,.13); backdrop-filter: blur(8px); transform: rotate(-3deg); }
+    .note-icon { width: 38px; height: 38px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 12px; color: var(--purple); background: #f3e8ff; }
+    .note-icon svg { width: 20px; height: 20px; }
+    .photo-note strong { display: block; font-size: 12px; }
+    .photo-note small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .floating-spark { position: absolute; top: 33px; left: 0; color: #f59e0b; font-size: 39px; transform: rotate(-14deg); }
+
+    .intro { padding: 96px 0; }
+    .intro-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 92px; align-items: start; }
+    .section-heading { max-width: 440px; }
+    h2 { margin: 14px 0 18px; font-size: clamp(32px, 4vw, 46px); font-weight: 800; line-height: 1.14; letter-spacing: -.045em; }
+    .section-heading p, .intro-copy p { color: var(--muted); font-size: 15px; line-height: 1.85; }
+    .intro-copy p + p { margin-top: 16px; }
+    .text-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; color: var(--purple); font-size: 13px; font-weight: 800; }
+    .text-link svg { width: 16px; height: 16px; transition: transform .2s; }
+    .text-link:hover svg { transform: translateX(4px); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 29px; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--line); }
+    .stat { padding: 17px 13px; text-align: center; background: white; }
+    .stat strong { display: block; color: var(--purple); font-family: Manrope, sans-serif; font-size: 20px; font-weight: 800; }
+    .stat span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
+
+    .collections { padding: 88px 0 96px; background: #faf7ff; }
+    .collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .collection-card { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: white; box-shadow: 0 9px 26px rgba(48,24,83,.045); transition: transform .22s, box-shadow .22s; }
+    .collection-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(48,24,83,.12); }
+    .collection-card > img { width: 100%; height: 190px; object-fit: cover; background: #eee8f5; }
+    .collection-info { padding: 19px 20px 21px; }
+    .collection-info > span { color: var(--purple); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+    .collection-info h3 { margin: 8px 0 7px; font-size: 17px; font-weight: 800; }
+    .collection-info p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    .mission { padding: 82px 0; color: white; background: linear-gradient(115deg, #34115f, #56239a 56%, #7130a7); }
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .mission .eyebrow { color: #e9d5ff; }
+    .mission h2 { max-width: 510px; margin-bottom: 20px; }
+    .mission p { max-width: 520px; margin-bottom: 0; color: #e4d8f1; font-size: 15px; line-height: 1.85; }
+    .mission-art { position: relative; min-height: 270px; display: grid; place-items: center; }
+    .mission-art::before, .mission-art::after { position: absolute; width: 220px; height: 220px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; content: ""; }
+    .mission-art::after { width: 290px; height: 290px; }
+    .mission-orbit { position: relative; z-index: 1; width: 150px; height: 150px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.45); border-radius: 44px; color: #3a1761; background: linear-gradient(145deg, #fef3c7, #f9a8d4 54%, #c4b5fd); box-shadow: 0 20px 55px rgba(11,5,27,.28); transform: rotate(-8deg); }
+    .mission-orbit svg { width: 64px; height: 64px; }
+    .orbit-chip { position: absolute; z-index: 2; display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(255,255,255,.65); border-radius: 16px; color: #fff; background: rgba(255,255,255,.15); backdrop-filter: blur(6px); }
+    .orbit-chip svg { width: 22px; height: 22px; }
+    .chip-one { top: 20px; left: 20%; transform: rotate(-12deg); }
+    .chip-two { right: 17%; bottom: 22px; transform: rotate(10deg); }
+
+    .values { padding: 94px 0 100px; background: #fff; }
+    .center-heading { max-width: 640px; margin: 0 auto 43px; text-align: center; }
+    .center-heading .eyebrow { justify-content: center; }
+    .center-heading p { max-width: 510px; margin: 0 auto; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .value-card { min-height: 228px; padding: 26px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, #fff, #fdfaff); transition: transform .2s, box-shadow .2s, border-color .2s; }
+    .value-card:hover { transform: translateY(-5px); border-color: #d7c2ef; box-shadow: 0 18px 34px rgba(57,31,86,.08); }
+    .value-icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 21px; border-radius: 15px; color: var(--purple); background: #f0e7ff; }
+    .value-card:nth-child(2) .value-icon { color: #c02663; background: #fff0f4; }
+    .value-card:nth-child(3) .value-icon { color: #0f766e; background: #e2fbf6; }
+    .value-card:nth-child(4) .value-icon { color: #b45309; background: #fff7df; }
+    .value-card:nth-child(5) .value-icon { color: #2563eb; background: #eaf2ff; }
+    .value-card:nth-child(6) .value-icon { color: #7c3aed; background: #f0e7ff; }
+    .value-icon svg { width: 22px; height: 22px; }
+    .value-card h3 { margin-bottom: 9px; font-size: 16px; font-weight: 800; }
+    .value-card p { margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+
+    .experience { padding: 82px 0; background: #faf7ff; }
+    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 76px; align-items: center; }
+    .craft-photo { position: relative; height: 390px; overflow: hidden; border-radius: 30px; box-shadow: var(--shadow); }
+    .craft-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .craft-photo::after { position: absolute; inset: 40% 0 0; content: ""; background: linear-gradient(transparent, rgba(33,16,46,.65)); }
+    .craft-caption { position: absolute; z-index: 1; right: 25px; bottom: 22px; left: 25px; color: white; }
+    .craft-caption strong { display: block; font: 800 20px Manrope, sans-serif; }
+    .craft-caption span { display: block; margin-top: 5px; color: rgba(255,255,255,.85); font-size: 12px; }
+    .experience-copy h2 { max-width: 470px; }
+    .experience-copy > p { color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .check-list { display: grid; gap: 14px; margin: 27px 0 30px; padding: 0; list-style: none; }
+    .check-list li { display: flex; align-items: flex-start; gap: 11px; color: #51465f; font-size: 13px; line-height: 1.6; }
+    .check-list svg { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 1px; color: #10a28f; }
+
+    .cta { padding: 86px 0; }
+    .cta-panel { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 35px; padding: 48px 56px; border-radius: 28px; color: white; background: linear-gradient(110deg, #7c2ec4, #c0268c 63%, #e8587a); }
+    .cta-panel::after { position: absolute; top: -105px; right: 210px; width: 280px; height: 280px; border: 1px solid rgba(255,255,255,.19); border-radius: 50%; content: ""; box-shadow: 0 0 0 33px rgba(255,255,255,.04), 0 0 0 68px rgba(255,255,255,.035); }
+    .cta-copy { position: relative; z-index: 1; max-width: 590px; }
+    .cta-copy .eyebrow { color: #fce7f3; }
+    .cta-copy h2 { margin: 13px 0 10px; font-size: clamp(29px, 3.5vw, 40px); }
+    .cta-copy p { margin-bottom: 0; color: #f6e8f4; font-size: 13px; line-height: 1.7; }
+    .cta .button { position: relative; z-index: 1; flex: 0 0 auto; color: var(--purple-dark); background: white; box-shadow: 0 10px 25px rgba(48,13,64,.18); }
+    .cta .button:hover { background: #fff7fd; }
+
+    .footer { padding: 32px 0; border-top: 1px solid var(--line); background: white; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { width: 135px; }
+    .footer-brand img { width: 100%; }
+    .footer-note { margin: 0; color: var(--muted); font-size: 11px; }
+    .footer-links { display: flex; gap: 20px; color: #62566e; font-size: 11px; font-weight: 700; }
+    .footer-links a:hover { color: var(--purple); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .menu-toggle { display: none; }
+
+    @media (max-width: 850px) {
+      .header-row { gap: 18px; }
+      .brand { width: 155px; }
+      .header-actions { gap: 14px; }
+      .account { display: none; }
+      .hero-grid { gap: 35px; }
+      .hero-art { min-height: 360px; }
+      .hero-photo { height: 350px; }
+      .intro-grid, .mission-grid, .experience-grid { gap: 45px; }
+      .value-grid { grid-template-columns: repeat(2, 1fr); }
+      .collection-grid { grid-template-columns: repeat(2, 1fr); }
+      .collection-card > img { height: 165px; }
+    }
+    @media (max-width: 620px) {
+      :root { scroll-padding-top: 110px; }
+      .wrap { width: min(100% - 36px, 480px); }
+      .header-row { min-height: 69px; gap: 12px; }
+      .brand { width: 125px; }
+      .search { max-width: none; }
+      .search input { height: 40px; padding-left: 12px; font-size: 11px; }
+      .search button { width: 34px; }
+      .header-actions { gap: 0; }
+      .cart { width: 39px; height: 39px; justify-content: center; padding: 0; }
+      .cart span { display: none; }
+      .category-row { min-height: 42px; gap: 22px; font-size: 11px; }
+      .category-row a { min-height: 42px; }
+      .hero { padding: 53px 0 50px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+      h1 { max-width: 450px; margin-top: 14px; font-size: clamp(40px, 12vw, 55px); }
+      .hero-copy { font-size: 14px; }
+      .hero-art { min-height: 315px; }
+      .hero-photo { top: 0; right: 8%; width: 78%; height: 300px; border-width: 6px; }
+      .photo-note { right: 1px; bottom: 2px; }
+      .floating-spark { top: 8px; left: 0; }
+      .intro, .values, .collections { padding: 67px 0; }
+      .intro-grid, .mission-grid, .experience-grid { grid-template-columns: 1fr; gap: 28px; }
+      h2 { font-size: 35px; }
+      .intro-copy p, .section-heading p { font-size: 14px; }
+      .mission { padding: 63px 0 48px; }
+      .mission-art { min-height: 220px; }
+      .mission-art::before { width: 170px; height: 170px; }
+      .mission-art::after { width: 225px; height: 225px; }
+      .mission-orbit { width: 125px; height: 125px; }
+      .center-heading { margin-bottom: 30px; }
+      .collection-grid { gap: 11px; }
+      .collection-card { border-radius: 16px; }
+      .collection-card > img { height: 125px; }
+      .collection-info { padding: 14px; }
+      .collection-info > span { font-size: 8px; }
+      .collection-info h3 { font-size: 13px; }
+      .collection-info p { font-size: 10px; }
+      .value-grid { gap: 11px; }
+      .value-card { min-height: 205px; padding: 17px; border-radius: 16px; }
+      .value-icon { width: 40px; height: 40px; margin-bottom: 16px; border-radius: 13px; }
+      .value-card h3 { font-size: 14px; }
+      .value-card p { font-size: 11px; }
+      .experience { padding: 57px 0; }
+      .craft-photo { height: 300px; }
+      .experience-copy h2 { font-size: 34px; }
+      .cta { padding: 58px 0; }
+      .cta-panel { align-items: flex-start; flex-direction: column; padding: 34px 25px; border-radius: 22px; }
+      .cta-panel::after { right: -85px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .footer-links { flex-wrap: wrap; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <div class="wrap header-row">
+        <a class="brand" href="#top" aria-label="MakeKraft home">
+          <img src="MakeCraftLogo_transparent.png" alt="MakeKraft">
+        </a>
+        <form class="search" role="search" id="site-search">
+          <label for="search-input" hidden>Search this page</label>
+          <input id="search-input" type="search" placeholder="Search our story, values, and more..." autocomplete="off">
+          <button type="submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+          </button>
+        </form>
+        <div class="header-actions">
+          <a class="account" href="#contact"><small>Hello, creative soul</small><strong>Get in touch</strong></a>
+          <a class="cart" href="#our-story" aria-label="Explore MakeKraft">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.1a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+            <span>Explore</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="category-nav" aria-label="Page navigation">
+      <div class="wrap category-row">
+        <a class="active" href="#top">Our Story</a>
+        <a href="#our-story">Who We Are</a>
+        <a href="#collections">What We Bring Together</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#values">What We Believe</a>
+        <a href="#experience">The MakeKraft Way</a>
+        <a class="nav-cta" href="#contact">Let's Create Together</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">A little more about us</span>
+          <h1 id="hero-title">Little joys, thoughtful gifts, and <span>moments worth celebrating.</span></h1>
+          <p class="hero-copy">We’re MakeKraft — a place to discover kids’ crafts and toys, gifts for every occasion, home décor, modern and traditional outfits, and wedding return gifts and decorations. From everyday finds to once-in-a-lifetime celebrations, we bring more of what you love together.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="#our-story">Get to know us
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+            <a class="button button-secondary" href="#values">What matters to us</a>
+          </div>
+        </div>
+        <div class="hero-art reveal" aria-label="A joyful creative workspace">
+          <span class="floating-spark" aria-hidden="true">✳</span>
+          <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=1100&q=85" alt="A bright, welcoming creative studio filled with art supplies" fetchpriority="high">
+          </div>
+          <div class="photo-note">
+            <span class="note-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg></span>
+            <span><strong>Made for curious minds</strong><small>Come as you are. Create as you dream.</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="our-story" aria-labelledby="story-title">
+      <div class="wrap intro-grid">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Who we are</span>
+          <h2 id="story-title">Creativity belongs to everyone.</h2>
+          <p>A thoughtful find for every age, every home, and every occasion.</p>
+          <a class="text-link" href="#mission">Discover our mission
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="intro-copy reveal">
+          <p>MakeKraft is for all the things that make a house feel like home and an occasion feel like yours. We bring together playful finds for children, gifts chosen with someone special in mind, and details that make everyday spaces feel more personal.</p>
+          <p>Our world reaches from kids’ craft kits and toys to home décor, and from outfits that feel modern to styles rooted in tradition. When it is time to celebrate a wedding, discover décor and return-gift ideas that help you welcome your guests with care.</p>
+          <p>We believe shopping for life’s little moments and big milestones should feel inspiring and easy to explore. That is why MakeKraft brings these different needs together in one welcoming place, with room for every taste, tradition, and new idea.</p>
+          <div class="stats" aria-label="What you can discover at MakeKraft">
+            <div class="stat"><strong>Everyday</strong><span>joys for kids & home</span></div>
+            <div class="stat"><strong>Every style</strong><span>modern & traditional</span></div>
+            <div class="stat"><strong>Every occasion</strong><span>gifts & celebrations</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collections" id="collections" aria-labelledby="collections-title">
+      <div class="wrap">
+        <div class="center-heading reveal">
+          <span class="eyebrow">A little something for every part of life</span>
+          <h2 id="collections-title">More to love, all in one place.</h2>
+          <p>From playful afternoons and thoughtful presents to the details of a family celebration, explore the many things that make MakeKraft.</p>
+        </div>
+        <div class="collection-grid">
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=85" alt="A child enjoying a colorful creative activity" loading="lazy">
+            <div class="collection-info"><span>MAKE & DISCOVER</span><h3>Kids’ crafts</h3><p>Creative kits and hands-on ideas for curious little makers.</p></div>
+          </article>
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?auto=format&fit=crop&w=800&q=85" alt="A child playing with a favorite toy" loading="lazy">
+            <div class="collection-info"><span>PLAY EVERY DAY</span><h3>Kids’ toys</h3><p>Fun finds to bring imagination, play, and smiles into the day.</p></div>
+          </article>
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=85" alt="A beautifully wrapped present ready to give" loading="lazy">
+            <div class="collection-info"><span>GIVE WITH HEART</span><h3>Gifts for every occasion</h3><p>Thoughtful picks for birthdays, milestones, and just-because moments.</p></div>
+          </article>
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85" alt="Warm, considered home décor in a welcoming living space" loading="lazy">
+            <div class="collection-info"><span>MAKE IT FEEL LIKE HOME</span><h3>Home décor</h3><p>Finishing touches and décor ideas that bring personality to your space.</p></div>
+          </article>
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85" alt="Friends exploring contemporary fashion together" loading="lazy">
+            <div class="collection-info"><span>FIND YOUR EXPRESSION</span><h3>Modern & traditional outfits</h3><p>Explore looks for everyday wear, special days, and traditions you cherish.</p></div>
+          </article>
+          <article class="collection-card reveal">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85" alt="Wedding celebration details arranged with care" loading="lazy">
+            <div class="collection-info"><span>CELEBRATE TOGETHER</span><h3>Wedding gifts & décor</h3><p>Wedding décor and return-gift inspiration to welcome and thank your guests.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission" id="mission" aria-labelledby="mission-title">
+      <div class="wrap mission-grid">
+        <div class="reveal">
+          <span class="eyebrow">Why we’re here</span>
+          <h2 id="mission-title">Bring inspiration to everyday living and life’s biggest celebrations.</h2>
+          <p>Our mission is to make it easier to find joyful things for children, meaningful gifts, welcoming home details, outfits for different tastes and traditions, and thoughtful touches for weddings. We want every visit to help you find something that feels right for you or someone you love.</p>
+        </div>
+        <div class="mission-art reveal" aria-hidden="true">
+          <span class="orbit-chip chip-one"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3Z"/></svg></span>
+          <span class="mission-orbit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/><path d="M12 7.5v8M8.5 11.5h7"/></svg></span>
+          <span class="orbit-chip chip-two"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 20 5.5-1.2L20 8.3 15.7 4 5.2 14.5 4 20Z"/><path d="m13.5 6.2 4.3 4.3"/></svg></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="values" id="values" aria-labelledby="values-title">
+      <div class="wrap">
+        <div class="center-heading reveal">
+          <span class="eyebrow">The things we make room for</span>
+          <h2 id="values-title">A thoughtful choice, for every kind of moment.</h2>
+          <p>These are the ideas that guide how we bring together products for children, homes, personal style, gifting, and celebrations.</p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></span>
+            <h3>Something for everyone</h3>
+            <p>We make room for different ages, needs, tastes, and budgets, so everyone can find something that feels like them.</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4m0-12.8L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></span>
+            <h3>Joy in the little things</h3>
+            <p>Playful toys, a new craft, a lovely gift: small discoveries can turn an ordinary day into a memorable one.</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3>Choice with care</h3>
+            <p>We bring together useful, expressive finds for kids, home, gifting, personal style, and meaningful occasions.</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1M16 5.5a3 3 0 0 1 0 5.8M18 14a5 5 0 0 1 3 4.6v1"/></svg></span>
+            <h3>Tradition meets today</h3>
+            <p>We value the styles and customs people hold dear, alongside fresh ideas for modern homes, wardrobes, and celebrations.</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></span>
+            <h3>Celebrate every milestone</h3>
+            <p>From a child’s first creative project to a wedding day, we are here for the moments worth remembering.</p>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19c6 0 10-3 13-9l3-6-6 3C8 10 5 14 5 20"/><path d="M5 20c1-5 5-9 10-11"/></svg></span>
+            <h3>Give with meaning</h3>
+            <p>We believe gifts, wedding return gifts, and décor are more special when they help people feel welcomed and appreciated.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="wrap experience-grid">
+        <div class="craft-photo reveal">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1100&q=85" alt="Colorful art materials ready for a creative afternoon" loading="lazy">
+          <div class="craft-caption"><strong>From everyday finds to once-in-a-lifetime days.</strong><span>Discover something to enjoy, share, wear, or celebrate.</span></div>
+        </div>
+        <div class="experience-copy reveal">
+          <span class="eyebrow">The MakeKraft way</span>
+          <h2 id="experience-title">One place for everyday joys and special occasions.</h2>
+          <p>Whether you are choosing something for your child, finding a gift, refreshing a room, picking an outfit, or planning wedding details, we bring inspiration across categories together.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Find kids’ craft kits and toys for play, learning, and imagination.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Discover thoughtful gifts and home décor to make spaces and moments feel special.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Explore outfits with modern style and traditional inspiration.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Bring weddings to life with décor ideas and return gifts for your guests.</span></li>
+          </ul>
+          <a class="text-link" href="#contact">Share your creative spark
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="cta-panel reveal">
+          <div class="cta-copy">
+              <span class="eyebrow">There’s something for every moment</span>
+              <h2 id="contact-title">Find a little joy for yourself or someone you love.</h2>
+              <p>Explore playful picks, thoughtful gifts, home details, personal style, and special celebration touches — all here at MakeKraft.</p>
+          </div>
+          <a class="button" href="#our-story" aria-label="Read the MakeKraft story">
+            Get inspired
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <a class="footer-brand" href="#top" aria-label="MakeKraft, back to top"><img src="MakeCraftLogo_transparent.png" alt="MakeKraft"></a>
+      <p class="footer-note">Made with care for every kind of creator.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#our-story">Our story</a>
+        <a href="#values">Our values</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const searchForm = document.querySelector("#site-search");
+    const searchInput = document.querySelector("#search-input");
+
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        searchInput.focus();
+        return;
+      }
+
+      const sections = [...document.querySelectorAll("main section")];
+      const match = sections.find((section) => {
+        const sectionName = section.id.replaceAll("-", " ").toLowerCase();
+        const heading = section.querySelector("h1, h2")?.innerText.toLowerCase() || "";
+        return sectionName.includes(query) || heading.includes(query);
+      }) || sections.find((section) => section.innerText.toLowerCase().includes(query));
+      if (match) {
+        match.scrollIntoView({ behavior: "smooth", block: "start" });
+        searchInput.setCustomValidity("");
+      } else {
+        searchInput.setCustomValidity("No matching section found. Try searching for story, mission, values, or making.");
+        searchInput.reportValidity();
+      }
+    });
+
+    searchInput.addEventListener("input", () => searchInput.setCustomValidity(""));
+
+    const navLinks = [...document.querySelectorAll(".category-row a")];
+    const trackedSections = [...document.querySelectorAll("main section[id]")];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.hash === `#${entry.target.id}`);
+          });
+        }
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    trackedSections.forEach((section) => sectionObserver.observe(section));
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>
